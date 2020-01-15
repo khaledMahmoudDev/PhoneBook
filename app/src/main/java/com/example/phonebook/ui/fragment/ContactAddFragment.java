@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.text.InputFilter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import com.example.phonebook.R;
 import com.example.phonebook.model.ContactsModel;
 import com.example.phonebook.ui.ContactViewModel;
 import com.example.phonebook.ui.activity.CountryCode;
+import com.example.phonebook.ui.assets.InputFilterMinMax;
 
 public class ContactAddFragment extends Fragment {
 
@@ -81,7 +83,10 @@ public class ContactAddFragment extends Fragment {
         final EditText mail = view.findViewById(R.id.edtxt_mail_add_contact);
         final EditText address = view.findViewById(R.id.edtxt_address_add_contact);
         final EditText latitude = view.findViewById(R.id.edtxt_latitude_add_contact);
+        latitude.setFilters(new InputFilter[]{new InputFilterMinMax(-90 ,90)});
+
         final EditText longitude = view.findViewById(R.id.edtxt_longitude_add_contact);
+        longitude.setFilters(new InputFilter[]{new InputFilterMinMax(-180 ,180)});
         Button save = view.findViewById(R.id.btn_add_now_contact);
 
         Glide.with(getActivity()).load(avatarUrl).apply(RequestOptions.circleCropTransform()).into(profilemage);
