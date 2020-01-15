@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp"
+
+    >
+
+    <ImageView
+        android:id="@+id/profile_image"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <EditText
+            android:inputType="textPersonName"
+            android:layout_weight="1"
+            android:id="@+id/edtxt_first_name_add_contact"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:hint="First Name" />
+
+        <EditText
+
+            android:inputType="textPersonName"
+            android:layout_weight="1"
+            android:id="@+id/edtxt_last_name_add_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Last Name" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:inputType="phone"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_marginTop="8dp"
+            android:id="@+id/btn_select_country_code_add_contact"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="+00" />
+
+        <EditText
+            android:inputType="phone"
+            android:id="@+id/edtxt_phone_add_contact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Mobile Number" />
+
+    </LinearLayout>
+
+    <EditText
+        android:inputType="textEmailAddress"
+        android:id="@+id/edtxt_mail_add_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Email Address" />
+
+    <EditText
+        android:id="@+id/edtxt_address_add_contact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Address " />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <EditText
+            android:inputType="numberSigned"
+
+            android:layout_weight="1"
+            android:id="@+id/edtxt_longitude_add_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Longitude " />
+
+        <EditText
+
+            android:inputType="numberSigned"
+            android:layout_weight="1"
+            android:id="@+id/edtxt_latitude_add_contact"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:hint="Latitude " />
+    </LinearLayout>
+    <Button
+        android:layout_marginTop="8dp"
+        android:id="@+id/btn_add_now_contact"
+        android:text="Add to Contacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
