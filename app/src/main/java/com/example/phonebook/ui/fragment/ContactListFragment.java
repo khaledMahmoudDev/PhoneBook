@@ -32,6 +32,7 @@ import java.util.List;
 
 public class ContactListFragment extends Fragment {
     ContactViewModel contactViewModel;
+    String phoneNum;
 
     @Nullable
     @Override
@@ -76,7 +77,9 @@ public class ContactListFragment extends Fragment {
 
             @Override
             public void onContactItemCallBtnClickListenerCallBack(ContactsModel item) {
-                String phoneNumber = item.getCountry_code()+item.getPhone_number();
+
+
+                phoneNum = item.getCountry_code()+Integer.getInteger(item.getPhone_number());
 
                 if (Build.VERSION.SDK_INT < 23) {
                     phoneCall();
@@ -158,7 +161,7 @@ public class ContactListFragment extends Fragment {
         if (ActivityCompat.checkSelfPermission(getActivity(),
                 Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:12345678900"));
+            callIntent.setData(Uri.parse("tel:"+phoneNum));
             getActivity().startActivity(callIntent);
         }else{
             Toast.makeText(getActivity(), "You don't assign permission.", Toast.LENGTH_SHORT).show();

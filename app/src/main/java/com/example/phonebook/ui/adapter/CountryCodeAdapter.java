@@ -13,9 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.phonebook.R;
-import com.example.phonebook.model.ContactsModel;
 import com.example.phonebook.model.CountriesModel;
-import com.example.phonebook.ui.activity.CountryCode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +31,7 @@ public class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.
     @NonNull
     @Override
     public CountryCodeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_country_element,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_country_element, parent, false);
         context = parent.getContext();
         return new CountryCodeViewHolder(view);
     }
@@ -55,10 +53,12 @@ public class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.
     public int getItemCount() {
         return countriesModels.size();
     }
+
     public void setContact(List<CountriesModel> countriesModels) {
         this.countriesModels = countriesModels;
         notifyDataSetChanged();
     }
+
 
     public class CountryCodeViewHolder extends RecyclerView.ViewHolder {
 
@@ -77,8 +77,7 @@ public class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (countriesListClickListener!= null && getAdapterPosition() != RecyclerView.NO_POSITION)
-                    {
+                    if (countriesListClickListener != null && getAdapterPosition() != RecyclerView.NO_POSITION) {
                         countriesListClickListener.onCountriesItemClickListenerCallBack(countriesModels.get(getAdapterPosition()));
 
                     }
@@ -86,6 +85,7 @@ public class CountryCodeAdapter extends RecyclerView.Adapter<CountryCodeAdapter.
             });
         }
     }
+
     public interface CountriesListClickListener {
 
         void onCountriesItemClickListenerCallBack(CountriesModel item);

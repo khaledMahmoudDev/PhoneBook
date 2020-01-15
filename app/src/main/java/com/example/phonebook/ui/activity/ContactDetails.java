@@ -23,6 +23,8 @@ import com.example.phonebook.model.ContactsModel;
 
 public class ContactDetails extends AppCompatActivity {
 
+    String phoneNum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +53,8 @@ public class ContactDetails extends AppCompatActivity {
         phone.setText(dialNum);
         email.setText(contactsModel.getMail_address());
         address.setText(contactsModel.getAddress());
+
+        phoneNum = contactsModel.getCountry_code()+Integer.getInteger(contactsModel.getPhone_number());
 
 
         phoneCall.setOnClickListener(new View.OnClickListener() {
@@ -128,7 +132,7 @@ public class ContactDetails extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(this,
                 Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
             Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:12345678900"));
+            callIntent.setData(Uri.parse("tel:"+phoneNum));
             this.startActivity(callIntent);
         }else{
             Toast.makeText(this, "You don't assign permission.", Toast.LENGTH_SHORT).show();

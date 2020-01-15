@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -76,7 +77,7 @@ public class ContactAddFragment extends Fragment {
         final EditText firstName = view.findViewById(R.id.edtxt_first_name_add_contact);
         final EditText lastName = view.findViewById(R.id.edtxt_last_name_add_contact);
         final EditText phoneNumber = view.findViewById(R.id.edtxt_phone_add_contact);
-        countryCode = view.findViewById(R.id.btn_select_country_code_add_contact);
+        countryCode = view.findViewById(R.id.txt_select_country_code_add_contact);
         final EditText mail = view.findViewById(R.id.edtxt_mail_add_contact);
         final EditText address = view.findViewById(R.id.edtxt_address_add_contact);
         final EditText latitude = view.findViewById(R.id.edtxt_latitude_add_contact);
@@ -179,6 +180,7 @@ public class ContactAddFragment extends Fragment {
 
         } else if (requestCode == 15 && resultCode == getActivity().RESULT_OK && null != data) {
 
+            Toast.makeText(getActivity(), "code is "+data.getStringExtra("countryCode"), Toast.LENGTH_SHORT).show();
             countryCode.setText(data.getStringExtra("countryCode"));
 
 
